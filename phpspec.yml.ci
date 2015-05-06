@@ -1,0 +1,10 @@
+suites:
+  serialization_suite:
+    namespace: fXmlRpc\Serialization
+    psr4_prefix: fXmlRpc\Serialization
+extensions:
+  - PhpSpec\Extension\CodeCoverageExtension
+formatter.name: pretty
+code_coverage:
+  format: clover
+  output: build/coverage.xml
