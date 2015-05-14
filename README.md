@@ -36,7 +36,7 @@ The implementations above provide `fxmlrpc/serialization-implementation` virtual
 ## Testing
 
 ``` bash
-$ phpspec run
+$ phpunit
 ```
 
 
