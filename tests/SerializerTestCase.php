@@ -443,7 +443,7 @@ abstract class SerializerTestCase extends \PHPUnit_Framework_TestCase
         $resource = stream_context_create();
 
         $this->setExpectedException(
-            'fXmlRpc\Exception\SerializationException',
+            'fXmlRpc\Serialization\Exception\SerializerException',
             'Could not serialize resource of type "stream-context"'
         );
         $this->serializer->serialize('method', [$resource]);
