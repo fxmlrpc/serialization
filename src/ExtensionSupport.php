@@ -11,6 +11,9 @@
 
 namespace fXmlRpc\Serialization;
 
+/**
+ * @author Lars Strojny <lstrojny@php.net>
+ */
 interface ExtensionSupport
 {
     const EXTENSION_NIL = 'nil';
