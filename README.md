@@ -32,6 +32,8 @@ Currently the following implementations are available:
 
 The implementations above provide `fxmlrpc/serialization-implementation` virtual package which is versioned together with the contract package.
 
+For performance tests check the [benchmarks](https://github.com/fxmlrpc/benchmarks) repository.
+
 
 ## Testing
 
