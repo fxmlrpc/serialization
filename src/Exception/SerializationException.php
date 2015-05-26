@@ -11,12 +11,14 @@
 
 namespace fXmlRpc\Serialization\Exception;
 
+use fXmlRpc\Exception;
+
 /**
  * All exceptions in this package should implement this interface
  *
  * @author Lars Strojny <lstrojny@php.net>
  */
-interface SerializationException
+interface SerializationException extends Exception
 {
 
 }
