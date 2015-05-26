@@ -12,7 +12,7 @@
 namespace fXmlRpc\Serialization\Tests;
 
 use fXmlRpc\Serialization\Parser;
-use fXmlRpc\Serialization\Value\Base64;
+use fXmlRpc\Serialization\Value\Base64Value;
 
 /**
  * @author Lars Strojny <lstrojny@php.net>
@@ -47,7 +47,7 @@ abstract class ParserTestCase extends \PHPUnit_Framework_TestCase
                 'dateTime.iso8601',
                 '19980717T14:08:55'
             ],
-            [Base64::deserialize('Zm9vYmFy'), 'base64', 'Zm9vYmFy', function($v){return $v->getDecoded();}],
+            [Base64Value::deserialize('Zm9vYmFy'), 'base64', 'Zm9vYmFy', function($v){return $v->getDecoded();}],
             ['Ümläuts', 'string', '&#220;ml&#228;uts'],
         ];
     }

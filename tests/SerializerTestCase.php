@@ -12,7 +12,7 @@
 namespace fXmlRpc\Serialization\Tests;
 
 use fXmlRpc\Serialization\Serializer;
-use fXmlRpc\Serialization\Value\Base64;
+use fXmlRpc\Serialization\Value\Base64Value;
 
 /**
  * @author Lars Strojny <lstrojny@php.net>
@@ -39,7 +39,7 @@ abstract class SerializerTestCase extends \PHPUnit_Framework_TestCase
                 \DateTime::createFromFormat('Y-m-d H:i:s', '1998-07-17 14:08:55', new \DateTimeZone('UTC')),
                 '19980717T14:08:55'
             ],
-            ['base64', Base64::serialize('string'), "c3RyaW5n\n"],
+            ['base64', Base64Value::serialize('string'), "c3RyaW5n\n"],
             ['string', 'Ümläuts', '&#220;ml&#228;uts'],
         ];
     }
