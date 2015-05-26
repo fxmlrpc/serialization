@@ -11,23 +11,20 @@
 
 namespace fXmlRpc\Serialization\Tests\Exception;
 
-use fXmlRpc\Serialization\Exception\SerializerException;
+use fXmlRpc\Serialization\Exception\InvalidTypeException;
 
 /**
- * @author Lars Strojny <lstrojny@php.net>
+ * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class SerializerExceptionTest extends \PHPUnit_Framework_TestCase
+class InvalidTypeExceptionTest extends \PHPUnit_Framework_TestCase
 {
-    public function testExceptionImplementsSerializationExceptionInterface()
-    {
-        $this->assertInstanceOf('fXmlRpc\Serialization\Exception\SerializationException', new SerializerException());
-    }
-
-    public function testHasInvalidTypeConstructor()
+    public function testIsInvalidTypeException()
     {
         $value = tmpfile();
 
-        $e = SerializerException::invalidType($value);
+        $e = new InvalidTypeException($value);
+
+        $this->assertInstanceOf('fXmlRpc\Serialization\Exception\SerializerException', $e);
 
         $this->assertEquals(
             'Could not serialize resource of type "stream"',

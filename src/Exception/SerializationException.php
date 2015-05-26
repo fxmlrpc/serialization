@@ -16,7 +16,7 @@ use fXmlRpc\Exception;
 /**
  * All exceptions in this package should implement this interface
  *
- * @author Lars Strojny <lstrojny@php.net>
+ * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
 interface SerializationException extends Exception
 {
