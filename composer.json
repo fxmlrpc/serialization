@@ -20,16 +20,12 @@
         "fxmlrpc/fxmlrpc": "^0.1@dev"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.4"
+        "phpspec/phpspec": "~2.1",
+        "henrikbjorn/phpspec-code-coverage" : "~1.0"
     },
     "autoload": {
         "psr-4": {
             "fXmlRpc\\Serialization\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "fXmlRpc\\Serialization\\Tests\\": "tests/"
         }
     },
     "extra": {

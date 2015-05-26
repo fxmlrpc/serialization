@@ -32,7 +32,7 @@ final class Base64Value implements Base64
      * @param string $encoded
      * @param string $decoded
      */
-    private function __construct($encoded, $decoded)
+    public function __construct($encoded, $decoded)
     {
         $this->encoded = $encoded;
         $this->decoded = $decoded;

@@ -38,7 +38,7 @@ For performance tests check the [benchmarks](https://github.com/fxmlrpc/benchmar
 ## Testing
 
 ``` bash
-$ phpunit
+$ phpspec run
 ```
 
 
