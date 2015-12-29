@@ -5,17 +5,17 @@ namespace Fxmlrpc\Serialization;
 use Fxmlrpc\Serialization\Exception\ParserException;
 
 /**
- * Parser to parse XML responses into its PHP representation
+ * Parser to parse XML responses into its PHP representation.
  *
  * @author Lars Strojny <lstrojny@php.net>
  */
 interface Parser
 {
     /**
-     * Parses XML string into PHP representation
+     * Parses XML string into PHP representation.
      *
-     * @param string  $xmlString
-     * @param boolean $isFault
+     * @param string $xmlString
+     * @param bool   $isFault
      *
      * @return mixed
      *
