@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "fXmlRpc\\Serialization\\": "src/"
+            "Fxmlrpc\\Serialization\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "fXmlRpc\\Serialization\\Tests\\": "tests/"
+            "Fxmlrpc\\Serialization\\Tests\\": "tests/"
         }
     },
     "extra": {

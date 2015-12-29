@@ -1,8 +1,8 @@
 <?php
 
-namespace fXmlRpc\Serialization\Exception;
+namespace Fxmlrpc\Serialization\Exception;
 
-use fXmlRpc\Exception;
+use Fxmlrpc\Exception;
 
 /**
  * All exceptions in this package should implement this interface

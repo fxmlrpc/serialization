@@ -1,8 +1,8 @@
 <?php
 
-namespace fXmlRpc\Serialization;
+namespace Fxmlrpc\Serialization;
 
-use fXmlRpc\Serialization\Exception\SerializerException;
+use Fxmlrpc\Serialization\Exception\SerializerException;
 
 /**
  * Serializer creates XML from native PHP types

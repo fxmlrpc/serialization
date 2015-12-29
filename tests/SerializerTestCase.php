@@ -1,9 +1,9 @@
 <?php
 
-namespace fXmlRpc\Serialization\Tests;
+namespace Fxmlrpc\Serialization\Tests;
 
-use fXmlRpc\Serialization\Serializer;
-use fXmlRpc\Serialization\Value\Base64Value;
+use Fxmlrpc\Serialization\Serializer;
+use Fxmlrpc\Serialization\Value\Base64Value;
 
 /**
  * @author Lars Strojny <lstrojny@php.net>

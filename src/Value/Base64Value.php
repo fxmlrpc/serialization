@@ -1,6 +1,6 @@
 <?php
 
-namespace fXmlRpc\Serialization\Value;
+namespace Fxmlrpc\Serialization\Value;
 
 /**
  * Value object representing Base64-encoded and raw string value

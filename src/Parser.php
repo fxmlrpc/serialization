@@ -1,8 +1,8 @@
 <?php
 
-namespace fXmlRpc\Serialization;
+namespace Fxmlrpc\Serialization;
 
-use fXmlRpc\Serialization\Exception\ParserException;
+use Fxmlrpc\Serialization\Exception\ParserException;
 
 /**
  * Parser to parse XML responses into its PHP representation

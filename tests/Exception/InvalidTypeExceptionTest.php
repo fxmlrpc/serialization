@@ -1,8 +1,8 @@
 <?php
 
-namespace fXmlRpc\Serialization\Tests\Exception;
+namespace Fxmlrpc\Serialization\Tests\Exception;
 
-use fXmlRpc\Serialization\Exception\InvalidTypeException;
+use Fxmlrpc\Serialization\Exception\InvalidTypeException;
 
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>

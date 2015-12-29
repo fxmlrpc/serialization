@@ -1,6 +1,6 @@
 <?php
 
-namespace fXmlRpc\Serialization\Exception;
+namespace Fxmlrpc\Serialization\Exception;
 
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>

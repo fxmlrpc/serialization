@@ -1,6 +1,6 @@
 <?php
 
-namespace fXmlRpc\Serialization;
+namespace Fxmlrpc\Serialization;
 
 /**
  * @author Lars Strojny <lstrojny@php.net>
