@@ -31,6 +31,10 @@
             "Fxmlrpc\\Serialization\\Tests\\": "tests/"
         }
     },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-ci": "vendor/bin/phpunit"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "0.1-dev"
