@@ -1,0 +1,5 @@
+suites:
+    serialization_suite:
+        namespace: Fxmlrpc\Serialization
+        psr4_prefix: Fxmlrpc\Serialization
+formatter.name: pretty

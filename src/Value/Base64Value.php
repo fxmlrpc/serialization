@@ -23,7 +23,7 @@ final class Base64Value implements Base64
      * @param string $encoded
      * @param string $decoded
      */
-    private function __construct($encoded, $decoded)
+    public function __construct($encoded, $decoded)
     {
         $this->encoded = $encoded;
         $this->decoded = $decoded;
@@ -38,7 +38,7 @@ final class Base64Value implements Base64
      */
     public static function serialize($string)
     {
-        return new static(null, $string);
+        return new self(null, $string);
     }
 
     /**
@@ -50,7 +50,7 @@ final class Base64Value implements Base64
      */
     public static function deserialize($value)
     {
-        return new static(trim($value), null);
+        return new self(trim($value), null);
     }
 
     /**

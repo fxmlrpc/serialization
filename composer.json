@@ -1,6 +1,6 @@
 {
     "name": "fxmlrpc/serialization",
-    "description": "Serialization logic for fXmlRpc",
+    "description": "Serialization logic for FXMLRPC",
     "license": "MIT",
     "keywords": ["xmlrpc", "xml", "rpc", "serialization"],
     "homepage": "http://fxmlrpc.org",
@@ -19,27 +19,21 @@
         "php": ">=5.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.4"
+        "phpspec/phpspec": "^2.4",
+        "henrikbjorn/phpspec-code-coverage" : "^1.0"
     },
     "autoload": {
         "psr-4": {
             "Fxmlrpc\\Serialization\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Fxmlrpc\\Serialization\\Tests\\": "tests/"
-        }
-    },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-ci": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpspec run",
+        "test-ci": "vendor/bin/phpspec run -c phpspec.yml.ci"
     },
     "extra": {
         "branch-alias": {
             "dev-master": "0.1-dev"
         }
-    },
-    "prefer-stable": true,
-    "minimum-stability": "dev"
+    }
 }
