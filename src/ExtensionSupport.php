@@ -10,25 +10,25 @@ interface ExtensionSupport
     const EXTENSION_NIL = 'nil';
 
     /**
-     * Enables an extension
+     * Enables an extension.
      *
      * @param string $extension
      */
     public function enableExtension($extension);
 
     /**
-     * Disables an extension
+     * Disables an extension.
      *
      * @param string $extension
      */
     public function disableExtension($extension);
 
     /**
-     * Returns true if an extension is enabled
+     * Returns true if an extension is enabled.
      *
      * @param string $extension
      *
-     * @return boolean
+     * @return bool
      */
     public function isExtensionEnabled($extension);
 }

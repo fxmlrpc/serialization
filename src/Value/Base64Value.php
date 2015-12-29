@@ -3,7 +3,7 @@
 namespace Fxmlrpc\Serialization\Value;
 
 /**
- * Value object representing Base64-encoded and raw string value
+ * Value object representing Base64-encoded and raw string value.
  *
  * @author Lars Strojny <lstrojny@php.net>
  */
@@ -30,7 +30,7 @@ final class Base64Value implements Base64
     }
 
     /**
-     * Returns new base64 value object by encoded value
+     * Returns new base64 value object by encoded value.
      *
      * @param string $string
      *
@@ -42,7 +42,7 @@ final class Base64Value implements Base64
     }
 
     /**
-     * Returns new base64 value by string
+     * Returns new base64 value by string.
      *
      * @param string $value
      *

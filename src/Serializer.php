@@ -5,14 +5,14 @@ namespace Fxmlrpc\Serialization;
 use Fxmlrpc\Serialization\Exception\SerializerException;
 
 /**
- * Serializer creates XML from native PHP types
+ * Serializer creates XML from native PHP types.
  *
  * @author Lars Strojny <lstrojny@php.net>
  */
 interface Serializer
 {
     /**
-     * Serializes XML/RPC method name and params into XML representation
+     * Serializes XML/RPC method name and params into XML representation.
      *
      * @param string $method
      * @param array  $params
