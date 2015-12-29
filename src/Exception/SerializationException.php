@@ -9,7 +9,6 @@ use fXmlRpc\Exception;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-interface SerializationException extends Exception
+interface SerializationException
 {
-
 }

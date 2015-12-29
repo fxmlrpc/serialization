@@ -16,8 +16,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
-        "fxmlrpc/fxmlrpc": "^0.1@dev"
+        "php": ">=5.4"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.4"
