@@ -15,7 +15,7 @@ class InvalidTypeExceptionTest extends \PHPUnit_Framework_TestCase
 
         $e = new InvalidTypeException($value);
 
-        $this->assertInstanceOf('fXmlRpc\Serialization\Exception\SerializerException', $e);
+        $this->assertInstanceOf('Fxmlrpc\Serialization\Exception\SerializerException', $e);
 
         $this->assertEquals(
             'Could not serialize resource of type "stream"',
