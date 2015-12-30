@@ -7,6 +7,6 @@ use Fxmlrpc\Serialization\Exception;
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-interface SerializerException extends Exception
+class SerializerException extends \RuntimeException implements Exception
 {
 }

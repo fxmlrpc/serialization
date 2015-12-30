@@ -5,7 +5,7 @@ namespace Fxmlrpc\Serialization\Exception;
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-final class InvalidTypeException extends \RuntimeException implements SerializerException
+final class InvalidTypeException extends SerializerException
 {
     /**
      * @param mixed $value
