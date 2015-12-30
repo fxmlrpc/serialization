@@ -19,12 +19,32 @@
         "php": ">=5.4"
     },
     "require-dev": {
+        "ext-xmlrpc": "*",
+        "ext-xmlreader": "*",
+        "ext-xmlwriter": "*",
+        "zendframework/zendframework1": "^1.12.4",
+        "zendframework/zend-xmlrpc": "^2.3.2",
         "phpspec/phpspec": "^2.4",
-        "henrikbjorn/phpspec-code-coverage" : "^1.0"
+        "henrikbjorn/phpspec-code-coverage" : "^1.0",
+        "phpunit/phpunit": "^4.5",
+        "phpbench/phpbench": "^0.8.1"
+    },
+    "suggest": {
+        "ext-xmlrpc": "Used in native serialization logic",
+        "ext-xmlreader": "Used in SAX serialization logic",
+        "ext-xmlwriter": "Used in SAX serialization logic",
+        "zendframework/zendframework1": "Used in Zend 1 serialization wrapper",
+        "zendframework/zend-xmlrpc": "Used in Zend 2 serialization wrapper"
     },
     "autoload": {
         "psr-4": {
             "Fxmlrpc\\Serialization\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fxmlrpc\\Serialization\\Tests\\": "tests/",
+            "Fxmlrpc\\Benchmark\\": "benchmarks/"
         }
     },
     "scripts": {

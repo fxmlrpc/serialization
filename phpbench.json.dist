@@ -1,0 +1,20 @@
+{
+    "bootstrap": "vendor/autoload.php",
+    "path": "benchmarks",
+    "progress": "dots",
+    "time_unit": "milliseconds",
+    "output_mode": "throughput",
+    "reports": {
+        "custom": {
+            "extends": "aggregate",
+            "exclude": ["params"]
+        }
+    },
+    "outputs": {
+        "custom": {
+            "extends": "html",
+            "file": "index.html",
+            "title": "FXMLRPC Benchmarks"
+        }
+    }
+}
