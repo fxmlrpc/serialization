@@ -1,0 +1,23 @@
+default:
+    suites:
+        native:
+            contexts:
+                - ParserFeatureContext:
+                    - Fxmlrpc\Serialization\Parser\NativeParser
+        sax:
+            contexts:
+                - ParserFeatureContext:
+                    - Fxmlrpc\Serialization\Parser\XmlReaderParser
+        zend1:
+            contexts:
+                - ZendParserFeatureContext:
+                    - Fxmlrpc\Serialization\Parser\Zend1Parser
+            filters:
+                tags: "~@zend_incompatible"
+
+        zend2:
+            contexts:
+                - ZendParserFeatureContext:
+                    - Fxmlrpc\Serialization\Parser\Zend2Parser
+            filters:
+                tags: "~@zend_incompatible"
