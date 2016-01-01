@@ -4,7 +4,6 @@ namespace Fxmlrpc\Serialization\Parser;
 
 use Fxmlrpc\Serialization\Exception\ParserException;
 use Fxmlrpc\Serialization\Parser;
-use Fxmlrpc\Serialization\Value\Base64Value;
 
 /**
  * Parser to parse XML responses into its PHP representation using XML RPC extension.
