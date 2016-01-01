@@ -85,9 +85,11 @@ trait SerializerContext
     {
         if ('bool' === $type) {
             $param = $param === 'true';
+        } else {
+            $param = call_user_func($type.'val', $param);
         }
 
-        $this->iHaveAParameter(call_user_func($type.'val', $param));
+        $this->iHaveAParameter($param);
     }
 
     /**
