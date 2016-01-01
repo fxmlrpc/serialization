@@ -35,6 +35,7 @@ install:
 
 script:
     - $TEST_COMMAND
+    - vendor/bin/behat
 
 after_success:
     - if [[ "$COVERAGE" = true ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
