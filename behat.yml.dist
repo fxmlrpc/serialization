@@ -4,14 +4,20 @@ default:
             contexts:
                 - ParserFeatureContext:
                     - Fxmlrpc\Serialization\Parser\NativeParser
+                - SerializerFeatureContext:
+                    - Fxmlrpc\Serialization\Serializer\NativeSerializer
         sax:
             contexts:
                 - ParserFeatureContext:
                     - Fxmlrpc\Serialization\Parser\XmlReaderParser
+                - SerializerFeatureContext:
+                    - Fxmlrpc\Serialization\Serializer\XmlWriterSerializer
         zend1:
             contexts:
                 - ZendParserFeatureContext:
                     - Fxmlrpc\Serialization\Parser\Zend1Parser
+                - ZendSerializerFeatureContext:
+                    - Fxmlrpc\Serialization\Serializer\Zend1Serializer
             filters:
                 tags: "~@zend_incompatible"
 
@@ -19,5 +25,7 @@ default:
             contexts:
                 - ZendParserFeatureContext:
                     - Fxmlrpc\Serialization\Parser\Zend2Parser
+                - ZendSerializerFeatureContext:
+                    - Fxmlrpc\Serialization\Serializer\Zend2Serializer
             filters:
                 tags: "~@zend_incompatible"
