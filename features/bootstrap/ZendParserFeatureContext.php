@@ -1,14 +1,13 @@
 <?php
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 use Fxmlrpc\Serialization\Value\Base64Value;
 use Webmozart\Assert\Assert;
 
 /**
  * Defines parser features from the specific context.
  */
-class ZendParserFeatureContext implements Context, SnippetAcceptingContext
+class ZendParserFeatureContext implements Context
 {
     use ParserContext;
 

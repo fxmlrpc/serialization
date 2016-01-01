@@ -1,12 +1,11 @@
 <?php
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 
 /**
  * Defines parser features from the specific context.
  */
-class ParserFeatureContext implements Context, SnippetAcceptingContext
+class ParserFeatureContext implements Context
 {
     use ParserContext;
 

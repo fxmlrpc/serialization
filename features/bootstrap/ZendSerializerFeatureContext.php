@@ -1,12 +1,11 @@
 <?php
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 
 /**
  * Defines serializer features from the specific context.
  */
-class ZendSerializerFeatureContext implements Context, SnippetAcceptingContext
+class ZendSerializerFeatureContext implements Context
 {
     use SerializerContext;
 

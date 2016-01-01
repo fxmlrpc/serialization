@@ -1,12 +1,11 @@
 <?php
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 
 /**
  * Defines serializer features from the specific context.
  */
-class SerializerFeatureContext implements Context, SnippetAcceptingContext
+class SerializerFeatureContext implements Context
 {
     use SerializerContext {
         iShouldSeeARequestWithTheParameterOfType as protected iShouldSeeARequestWithTheParameterOfTypeOrig;
