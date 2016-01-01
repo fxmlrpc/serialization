@@ -1,27 +1,19 @@
 <?php
 
-namespace Fxmlrpc\Serialization\Tests\CodeGenerator;
+namespace spec\Fxmlrpc\Serialization\CodeGenerator;
 
-use Fxmlrpc\Serialization\CodeGenerator\XmlReaderParserBitmaskGenerator;
+use PhpSpec\ObjectBehavior;
 
-/**
- * @author Lars Strojny <lstrojny@php.net>
- */
-class XmlReaderParserBitmaskGeneratorTest extends \PHPUnit_Framework_TestCase
+class XmlReaderParserBitmaskGeneratorSpec extends ObjectBehavior
 {
-    /**
-     * @var XmlReaderParserBitmaskGenerator
-     */
-    private $generator;
-
-    public function setUp()
+    function it_is_initializable()
     {
-        $this->generator = new XmlReaderParserBitmaskGenerator();
+        $this->shouldHaveType('Fxmlrpc\Serialization\CodeGenerator\XmlReaderParserBitmaskGenerator');
     }
 
-    public function testGenerateBitmask()
+    function it_generates_bitmask()
     {
-$code = <<<'EOS'
+        $code = <<<'EOS'
 // This following assignments are auto-generated using Fxmlrpc\Serialization\CodeGenerator\XmlReaderParserBitmaskGenerator
 // Don’t edit manually
 static $flagmethodResponse = 0b000000000000000000000000001;
@@ -66,8 +58,6 @@ static $allFlags = 0b111111111111111111111111111;
 // End of auto-generated code
 EOS;
 
-        $generatedCode = $this->generator->generate();
-        $this->assertSame($code, $generatedCode);
-        eval($generatedCode);
+        $this->generate()->shouldReturn($code);
     }
 }
