@@ -1,9 +1,6 @@
 <?php
 
-use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
 use Fxmlrpc\Serialization\Parser;
 use Fxmlrpc\Serialization\Value\Base64Value;
 use Webmozart\Assert\Assert;
