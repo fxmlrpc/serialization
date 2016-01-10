@@ -22,6 +22,9 @@ branches:
         - /^analysis-.*$/
 
 matrix:
+    allow_failures:
+        - php: 7.0
+        - php: hhvm
     fast_finish: true
     include:
         - php: 5.4
@@ -35,6 +38,7 @@ install:
 
 script:
     - $TEST_COMMAND
+    - vendor/bin/behat
 
 after_success:
     - if [[ "$COVERAGE" = true ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi

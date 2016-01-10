@@ -27,7 +27,9 @@
         "phpspec/phpspec": "^2.4",
         "henrikbjorn/phpspec-code-coverage" : "^1.0",
         "phpunit/phpunit": "^4.5",
-        "phpbench/phpbench": "^0.8.1"
+        "phpbench/phpbench": "^0.8.1",
+        "behat/behat": "^3.0",
+        "webmozart/assert": "^1.0"
     },
     "suggest": {
         "ext-xmlrpc": "Used in native serialization logic",
