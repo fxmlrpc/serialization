@@ -26,12 +26,5 @@ Feature: fault
             </methodResponse>
             """
         When I parse the response
-        Then I should see a structure matching JSON
-            """
-            {
-                "faultCode": 123,
-                "faultString": "ERROR"
-            }
-            """
-        And there should be a fault
+        Then there should be a fault
 

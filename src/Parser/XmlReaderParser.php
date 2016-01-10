@@ -2,6 +2,7 @@
 
 namespace Fxmlrpc\Serialization\Parser;
 
+use Fxmlrpc\Serialization\Exception\FaultException;
 use Fxmlrpc\Serialization\Exception\UnexpectedTagException;
 use Fxmlrpc\Serialization\Parser;
 use Fxmlrpc\Serialization\Value\Base64Value;
@@ -16,8 +17,10 @@ final class XmlReaderParser implements Parser
     /**
      * {@inheritdoc}
      */
-    public function parse($xmlString, &$isFault)
+    public function parse($xmlString)
     {
+        $isFault = false;
+
         $useErrors = libxml_use_internal_errors(true);
 
         $xml = new \XMLReader();
@@ -102,7 +105,6 @@ final class XmlReaderParser implements Parser
                             // Next: param
                             $nextExpectedElements = 0b000000000000000000000001000;
                             $aggregates[$depth] = [];
-                            $isFault = false;
                             break;
 
                         case 'fault':
@@ -327,6 +329,12 @@ final class XmlReaderParser implements Parser
 
         libxml_use_internal_errors($useErrors);
 
-        return $aggregates ? array_pop($aggregates[0]) : null;
+        $result = $aggregates ? array_pop($aggregates[0]) : null;
+
+        if ($isFault) {
+            throw FaultException::createFromResponse($result);
+        }
+
+        return $result;
     }
 }

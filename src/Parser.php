@@ -15,11 +15,10 @@ interface Parser
      * Parses XML string into PHP representation.
      *
      * @param string $xmlString
-     * @param bool   $isFault
      *
      * @return mixed
      *
      * @throws ParserException
      */
-    public function parse($xmlString, &$isFault);
+    public function parse($xmlString);
 }
