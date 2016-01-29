@@ -2,6 +2,7 @@
 
 namespace Fxmlrpc\Serialization\Parser;
 
+use Fxmlrpc\Serialization\Exception\FaultException;
 use Fxmlrpc\Serialization\Parser;
 use Fxmlrpc\Serialization\Value\Base64Value;
 
@@ -15,11 +16,9 @@ final class NativeParser implements Parser
     /**
      * {@inheritdoc}
      */
-    public function parse($xmlString, &$isFault)
+    public function parse($xmlString)
     {
         $result = xmlrpc_decode($xmlString, 'UTF-8');
-
-        $isFault = false;
 
         $toBeVisited = [&$result];
         while (isset($toBeVisited[0]) && $value = &$toBeVisited[0]) {
@@ -50,7 +49,10 @@ final class NativeParser implements Parser
 
         if (is_array($result)) {
             reset($result);
-            $isFault = xmlrpc_is_fault($result);
+
+            if (xmlrpc_is_fault($result)) {
+                throw FaultException::createFromResponse($result);
+            }
         }
 
         return $result;

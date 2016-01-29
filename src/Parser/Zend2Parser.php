@@ -2,6 +2,7 @@
 
 namespace Fxmlrpc\Serialization\Parser;
 
+use Fxmlrpc\Serialization\Exception\FaultException;
 use Fxmlrpc\Serialization\Exception\ParserException;
 use Fxmlrpc\Serialization\Parser;
 use Zend\XmlRpc\Response;
@@ -16,7 +17,7 @@ final class Zend2Parser implements Parser
     /**
      * {@inheritdoc}
      */
-    public function parse($xmlString, &$isFault)
+    public function parse($xmlString)
     {
         $response = new Response();
 
@@ -26,15 +27,10 @@ final class Zend2Parser implements Parser
             throw new ParserException($e->getMessage(), $e->getCode(), $e);
         }
 
-        $isFault = $response->isFault();
-
-        if ($isFault) {
+        if ($response->isFault()) {
             $fault = $response->getFault();
 
-            return [
-                'faultCode'   => $fault->getCode(),
-                'faultString' => $fault->getMessage(),
-            ];
+            throw new FaultException($fault->getMessage(), $fault->getCode());
         }
 
         $result = $response->getReturnValue();

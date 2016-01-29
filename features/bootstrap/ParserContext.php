@@ -1,6 +1,7 @@
 <?php
 
 use Behat\Gherkin\Node\PyStringNode;
+use Fxmlrpc\Serialization\Exception\FaultException;
 use Fxmlrpc\Serialization\Parser;
 use Fxmlrpc\Serialization\Value\Base64Value;
 use Webmozart\Assert\Assert;
@@ -91,7 +92,12 @@ trait ParserContext
      */
     public function iParseTheResponse()
     {
-        $this->value = $this->parser->parse($this->response, $this->isFault);
+        try {
+            $this->value = $this->parser->parse($this->response);
+            $this->isFault = false;
+        } catch (FaultException $e) {
+            $this->isFault = true;
+        }
     }
 
     /**
