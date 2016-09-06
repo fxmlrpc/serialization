@@ -40,13 +40,13 @@ final class NativeSerializer implements Serializer
                 if ($value instanceof \DateTime) {
                     $params[$key] = (object) [
                         'xmlrpc_type' => 'datetime',
-                        'scalar'      => $value->format('Ymd\TH:i:s'),
-                        'timestamp'   => $value->format('u'),
+                        'scalar' => $value->format('Ymd\TH:i:s'),
+                        'timestamp' => $value->format('u'),
                     ];
                 } elseif ($value instanceof Base64) {
                     $params[$key] = (object) [
                         'xmlrpc_type' => 'base64',
-                        'scalar'      => $value->getDecoded(),
+                        'scalar' => $value->getDecoded(),
                     ];
                 } else {
                     $params[$key] = get_object_vars($value);
@@ -55,6 +55,7 @@ final class NativeSerializer implements Serializer
                 throw new InvalidTypeException($value);
             }
         }
+
         return $params;
     }
 }
