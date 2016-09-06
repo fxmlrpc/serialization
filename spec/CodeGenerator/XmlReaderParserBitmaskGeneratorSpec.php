@@ -2,13 +2,14 @@
 
 namespace spec\Fxmlrpc\Serialization\CodeGenerator;
 
+use Fxmlrpc\Serialization\CodeGenerator\XmlReaderParserBitmaskGenerator;
 use PhpSpec\ObjectBehavior;
 
 class XmlReaderParserBitmaskGeneratorSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Fxmlrpc\Serialization\CodeGenerator\XmlReaderParserBitmaskGenerator');
+        $this->shouldHaveType(XmlReaderParserBitmaskGenerator::class);
     }
 
     function it_generates_bitmask()

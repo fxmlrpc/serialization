@@ -2,6 +2,8 @@
 
 namespace spec\Fxmlrpc\Serialization\Value;
 
+use Fxmlrpc\Serialization\Value\Base64;
+use Fxmlrpc\Serialization\Value\Base64Value;
 use PhpSpec\ObjectBehavior;
 
 class Base64ValueSpec extends ObjectBehavior
@@ -13,12 +15,12 @@ class Base64ValueSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Fxmlrpc\Serialization\Value\Base64Value');
+        $this->shouldHaveType(Base64Value::class);
     }
 
     function it_is_a_base64_value()
     {
-        $this->shouldImplement('Fxmlrpc\Serialization\Value\Base64');
+        $this->shouldImplement(Base64::class);
     }
 
     function it_encodes_a_string()

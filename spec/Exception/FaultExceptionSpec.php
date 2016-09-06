@@ -2,8 +2,9 @@
 
 namespace spec\Fxmlrpc\Serialization\Exception;
 
+use Fxmlrpc\Serialization\Exception;
+use Fxmlrpc\Serialization\Exception\FaultException;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class FaultExceptionSpec extends ObjectBehavior
 {
@@ -14,12 +15,12 @@ class FaultExceptionSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Fxmlrpc\Serialization\Exception\FaultException');
+        $this->shouldHaveType(FaultException::class);
     }
 
     function it_is_a_serialization_exception()
     {
-        $this->shouldImplement('Fxmlrpc\Serialization\Exception');
+        $this->shouldImplement(Exception::class);
     }
 
     function it_has_a_fault_string()

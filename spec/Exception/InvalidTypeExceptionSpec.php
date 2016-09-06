@@ -2,6 +2,8 @@
 
 namespace spec\Fxmlrpc\Serialization\Exception;
 
+use Fxmlrpc\Serialization\Exception;
+use Fxmlrpc\Serialization\Exception\InvalidTypeException;
 use PhpSpec\ObjectBehavior;
 
 class InvalidTypeExceptionSpec extends ObjectBehavior
@@ -16,11 +18,11 @@ class InvalidTypeExceptionSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Fxmlrpc\Serialization\Exception\InvalidTypeException');
+        $this->shouldHaveType(InvalidTypeException::class);
     }
 
     function it_is_a_serialization_exception()
     {
-        $this->shouldImplement('Fxmlrpc\Serialization\Exception');
+        $this->shouldImplement(Exception::class);
     }
 }

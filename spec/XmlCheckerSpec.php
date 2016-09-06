@@ -2,14 +2,15 @@
 
 namespace spec\Fxmlrpc\Serialization;
 
+use Fxmlrpc\Serialization\Exception\ParserException;
+use Fxmlrpc\Serialization\XmlChecker;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class XmlCheckerSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Fxmlrpc\Serialization\XmlChecker');
+        $this->shouldHaveType(XmlChecker::class);
     }
 
     function it_checks_valid_xml()
@@ -19,6 +20,6 @@ class XmlCheckerSpec extends ObjectBehavior
 
     function it_throws_an_exception_when_xml_is_invalid()
     {
-        $this->shouldThrow('Fxmlrpc\Serialization\Exception\ParserException')->duringIsValid('string');
+        $this->shouldThrow(ParserException::class)->duringIsValid('string');
     }
 }

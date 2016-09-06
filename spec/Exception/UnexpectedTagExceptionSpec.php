@@ -2,6 +2,8 @@
 
 namespace spec\Fxmlrpc\Serialization\Exception;
 
+use Fxmlrpc\Serialization\Exception;
+use Fxmlrpc\Serialization\Exception\UnexpectedTagException;
 use PhpSpec\ObjectBehavior;
 
 class UnexpectedTagExceptionSpec extends ObjectBehavior
@@ -23,12 +25,12 @@ class UnexpectedTagExceptionSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Fxmlrpc\Serialization\Exception\UnexpectedTagException');
+        $this->shouldHaveType(UnexpectedTagException::class);
     }
 
     function it_is_a_serialization_exception()
     {
-        $this->shouldImplement('Fxmlrpc\Serialization\Exception');
+        $this->shouldImplement(Exception::class);
     }
 
     function it_has_a_message()
