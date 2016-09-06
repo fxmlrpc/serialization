@@ -18,36 +18,43 @@ final class NativeSerializer implements Serializer
      */
     public function serialize($method, array $params = [])
     {
-        $toBeVisited = [&$params];
+        return xmlrpc_encode_request(
+            $method,
+            $this->convert($params),
+            ['encoding' => 'UTF-8', 'escaping' => 'markup', 'verbosity' => 'no_white_space']
+        );
+    }
 
-        while (isset($toBeVisited[0]) && $value = &$toBeVisited[0]) {
+    /**
+     * @param array $params
+     *
+     * @return array
+     */
+    private function convert(array $params)
+    {
+        foreach ($params as $key => $value) {
             $type = gettype($value);
-
             if ($type === 'array') {
-                foreach ($value as &$child) {
-                    $toBeVisited[] = &$child;
-                }
+                $params[$key] = $this->convert($value);
             } elseif ($type === 'object') {
                 if ($value instanceof \DateTime) {
-                    $value = $value->format('Ymd\TH:i:s');
-                    xmlrpc_set_type($value, 'datetime');
+                    $params[$key] = (object) [
+                        'xmlrpc_type' => 'datetime',
+                        'scalar'      => $value->format('Ymd\TH:i:s'),
+                        'timestamp'   => $value->format('u'),
+                    ];
                 } elseif ($value instanceof Base64) {
-                    $value = $value->getDecoded();
-                    xmlrpc_set_type($value, 'base64');
+                    $params[$key] = (object) [
+                        'xmlrpc_type' => 'base64',
+                        'scalar'      => $value->getDecoded(),
+                    ];
                 } else {
-                    $value = get_object_vars($value);
+                    $params[$key] = get_object_vars($value);
                 }
             } elseif ($type === 'resource') {
                 throw new InvalidTypeException($value);
             }
-
-            array_shift($toBeVisited);
         }
-
-        return xmlrpc_encode_request(
-            $method,
-            $params,
-            ['encoding' => 'UTF-8', 'escaping' => 'markup', 'verbosity' => 'no_white_space']
-        );
+        return $params;
     }
 }

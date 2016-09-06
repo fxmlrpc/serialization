@@ -6,6 +6,7 @@ use Fxmlrpc\Serialization\Exception\FaultException;
 use Fxmlrpc\Serialization\Exception\UnexpectedTagException;
 use Fxmlrpc\Serialization\Parser;
 use Fxmlrpc\Serialization\Value\Base64Value;
+use Fxmlrpc\Serialization\XmlChecker;
 
 /**
  * Parser to parse XML responses into its PHP representation using XML Reader extension.
@@ -15,11 +16,26 @@ use Fxmlrpc\Serialization\Value\Base64Value;
 final class XmlReaderParser implements Parser
 {
     /**
+     * @var bool
+     */
+    private $validateResponse;
+
+    /**
+     * @param bool $validateResponse
+     */
+    public function __construct($validateResponse = true)
+    {
+        $this->validateResponse = $validateResponse;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function parse($xmlString)
     {
-        $isFault = false;
+        if ($this->validateResponse) {
+            XmlChecker::isValid($xmlString);
+        }
 
         $useErrors = libxml_use_internal_errors(true);
 
@@ -63,6 +79,8 @@ final class XmlReaderParser implements Parser
         $depth = 0;
         $nextExpectedElements = 0b000000000000000000000000001;
         $i = 0;
+        $isFault = false;
+
         while ($xml->read()) {
             ++$i;
             $nodeType = $xml->nodeType;
@@ -80,9 +98,11 @@ final class XmlReaderParser implements Parser
             }
 
             $tagName = $xml->localName;
+
             if ($nextExpectedElements !== null &&
                 ($flag = isset(${'flag'.$tagName}) ? ${'flag'.$tagName} : -1) &&
-                ($nextExpectedElements & $flag) !== $flag) {
+                ($nextExpectedElements & $flag) !== $flag
+            ) {
                 throw new UnexpectedTagException(
                     $tagName,
                     $nextExpectedElements,

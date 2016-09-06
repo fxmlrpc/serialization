@@ -16,4 +16,14 @@ class ParserExceptionSpec extends ObjectBehavior
     {
         $this->shouldImplement('Fxmlrpc\Serialization\Exception');
     }
+
+    function it_creates_an_exception_when_string_is_not_xml()
+    {
+        $this->notXml('string')->shouldBeAnInstanceOf('Fxmlrpc\Serialization\Exception\ParserException');
+    }
+
+    function it_creates_an_exception_when_xml_is_too_big()
+    {
+        $this->xmlrpcExtensionLibxmlParsehugeNotSupported()->shouldBeAnInstanceOf('Fxmlrpc\Serialization\Exception\ParserException');
+    }
 }

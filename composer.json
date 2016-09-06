@@ -3,7 +3,7 @@
     "description": "Serialization logic for FXMLRPC",
     "license": "MIT",
     "keywords": ["xmlrpc", "xml", "rpc", "serialization"],
-    "homepage": "http://fxmlrpc.org",
+    "homepage": "http://fxmlrpc.io",
     "authors": [
         {
             "name": "Lars Strojny",
@@ -26,8 +26,8 @@
         "zendframework/zend-xmlrpc": "^2.3.2",
         "phpspec/phpspec": "^2.4",
         "henrikbjorn/phpspec-code-coverage" : "^1.0",
-        "phpunit/phpunit": "^4.5",
-        "phpbench/phpbench": "^0.8.1",
+        "phpunit/phpunit": "^4.8 || ^5.0",
+        "phpbench/phpbench": "^0.8",
         "behat/behat": "^3.0",
         "webmozart/assert": "^1.0"
     },
@@ -45,13 +45,12 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Fxmlrpc\\Serialization\\Tests\\": "tests/",
             "Fxmlrpc\\Benchmark\\": "benchmarks/"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpspec run",
-        "test-ci": "vendor/bin/phpspec run -c phpspec.yml.ci"
+        "test": "vendor/bin/phpspec run && vendor/bin/behat",
+        "test-ci": "vendor/bin/phpspec run -c phpspec.ci.yml && vendor/bin/behat"
     },
     "extra": {
         "branch-alias": {

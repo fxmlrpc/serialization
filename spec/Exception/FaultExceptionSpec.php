@@ -17,11 +17,6 @@ class FaultExceptionSpec extends ObjectBehavior
         $this->shouldHaveType('Fxmlrpc\Serialization\Exception\FaultException');
     }
 
-    function it_is_a_serialization_parser()
-    {
-        $this->shouldImplement('Fxmlrpc\Serialization\Exception\ParserException');
-    }
-
     function it_is_a_serialization_exception()
     {
         $this->shouldImplement('Fxmlrpc\Serialization\Exception');

@@ -35,7 +35,7 @@ class ParserBench
     {
         $parser = new NativeParser();
 
-        $parser->parse($xml[0], $isFault);
+        $parser->parse($xml[0]);
     }
 
     /**
@@ -45,7 +45,7 @@ class ParserBench
     {
         $parser = new XmlReaderParser();
 
-        $parser->parse($xml[0], $isFault);
+        $parser->parse($xml[0]);
     }
 
     /**
@@ -55,7 +55,7 @@ class ParserBench
     {
         $parser = new Zend1Parser();
 
-        $parser->parse($xml[0], $isFault);
+        $parser->parse($xml[0]);
     }
 
     /**
@@ -65,6 +65,6 @@ class ParserBench
     {
         $parser = new Zend2Parser();
 
-        $parser->parse($xml[0], $isFault);
+        $parser->parse($xml[0]);
     }
 }

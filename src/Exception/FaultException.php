@@ -2,12 +2,14 @@
 
 namespace Fxmlrpc\Serialization\Exception;
 
+use Fxmlrpc\Serialization\Exception;
+
 /**
  * Thrown when the response is a fault.
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-final class FaultException extends ParserException
+final class FaultException extends \RuntimeException implements Exception
 {
     /**
      * @param string $faultString
