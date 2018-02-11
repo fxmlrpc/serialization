@@ -4,7 +4,6 @@ namespace Fxmlrpc\Benchmark;
 
 use Fxmlrpc\Serialization\Serializer\NativeSerializer;
 use Fxmlrpc\Serialization\Serializer\XmlWriterSerializer;
-use Fxmlrpc\Serialization\Serializer\Zend1Serializer;
 use Fxmlrpc\Serialization\Serializer\ZendSerializer;
 use Fxmlrpc\Serialization\Value\Base64Value;
 use PhpBench\Benchmark\Metadata\Annotations\Iterations;

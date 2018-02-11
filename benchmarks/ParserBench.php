@@ -5,7 +5,6 @@ namespace Fxmlrpc\Benchmark;
 use Fxmlrpc\Serialization\Parser;
 use Fxmlrpc\Serialization\Parser\NativeParser;
 use Fxmlrpc\Serialization\Parser\XmlReaderParser;
-use Fxmlrpc\Serialization\Parser\Zend1Parser;
 use Fxmlrpc\Serialization\Parser\ZendParser;
 use PhpBench\Benchmark\Metadata\Annotations\Iterations;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
