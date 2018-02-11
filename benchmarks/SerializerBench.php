@@ -4,8 +4,7 @@ namespace Fxmlrpc\Benchmark;
 
 use Fxmlrpc\Serialization\Serializer\NativeSerializer;
 use Fxmlrpc\Serialization\Serializer\XmlWriterSerializer;
-use Fxmlrpc\Serialization\Serializer\Zend1Serializer;
-use Fxmlrpc\Serialization\Serializer\Zend2Serializer;
+use Fxmlrpc\Serialization\Serializer\ZendSerializer;
 use Fxmlrpc\Serialization\Value\Base64Value;
 use PhpBench\Benchmark\Metadata\Annotations\Iterations;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
@@ -57,19 +56,9 @@ class SerializerBench
     /**
      * @ParamProviders({"paramProvider"})
      */
-    public function benchZend1Serializer($params)
+    public function benchZendSerializer($params)
     {
-        $serializer = new Zend1Serializer();
-
-        $serializer->serialize('test', $params);
-    }
-
-    /**
-     * @ParamProviders({"paramProvider"})
-     */
-    public function benchZend2Serializer($params)
-    {
-        $serializer = new Zend2Serializer();
+        $serializer = new ZendSerializer();
 
         $serializer->serialize('test', $params);
     }

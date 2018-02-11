@@ -12,20 +12,11 @@ default:
                     - Fxmlrpc\Serialization\Parser\XmlReaderParser
                 - SerializerFeatureContext:
                     - Fxmlrpc\Serialization\Serializer\XmlWriterSerializer
-        zend1:
-            contexts:
-                - ZendParserFeatureContext:
-                    - Fxmlrpc\Serialization\Parser\Zend1Parser
-                - ZendSerializerFeatureContext:
-                    - Fxmlrpc\Serialization\Serializer\Zend1Serializer
-            filters:
-                tags: "~@zend_incompatible"
-
         zend2:
             contexts:
                 - ZendParserFeatureContext:
-                    - Fxmlrpc\Serialization\Parser\Zend2Parser
+                    - Fxmlrpc\Serialization\Parser\ZendParser
                 - ZendSerializerFeatureContext:
-                    - Fxmlrpc\Serialization\Serializer\Zend2Serializer
+                    - Fxmlrpc\Serialization\Serializer\ZendSerializer
             filters:
                 tags: "~@zend_incompatible"

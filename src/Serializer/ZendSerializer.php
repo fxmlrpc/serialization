@@ -6,13 +6,15 @@ use Fxmlrpc\Serialization\Exception\InvalidTypeException;
 use Fxmlrpc\Serialization\Exception\SerializerException;
 use Fxmlrpc\Serialization\Serializer;
 use Fxmlrpc\Serialization\Value\Base64;
+use Zend\XmlRpc\AbstractValue;
+use Zend\XmlRpc\Request;
 
 /**
  * Serializer creates XML from native PHP types using XML RPC extension.
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-final class Zend1Serializer implements Serializer
+final class ZendSerializer implements Serializer
 {
     /**
      * {@inheritdoc}
@@ -35,9 +37,9 @@ final class Zend1Serializer implements Serializer
                 }
             } elseif ($type === 'object') {
                 if ($value instanceof \DateTime) {
-                    $value = \Zend_XmlRpc_Value::getXmlRpcValue($value->format('Ymd\TH:i:s'), \Zend_XmlRpc_Value::XMLRPC_TYPE_DATETIME);
+                    $value = AbstractValue::getXmlRpcValue($value->format('Ymd\TH:i:s'), AbstractValue::XMLRPC_TYPE_DATETIME);
                 } elseif ($value instanceof Base64) {
-                    $value = \Zend_XmlRpc_Value::getXmlRpcValue($value->getDecoded(), \Zend_XmlRpc_Value::XMLRPC_TYPE_BASE64);
+                    $value = AbstractValue::getXmlRpcValue($value->getDecoded(), AbstractValue::XMLRPC_TYPE_BASE64);
                 } else {
                     $value = get_object_vars($value);
                 }
@@ -48,7 +50,7 @@ final class Zend1Serializer implements Serializer
             array_shift($toBeVisited);
         }
 
-        $request = new \Zend_XmlRpc_Request($method, $params);
+        $request = new Request($method, $params);
 
         try {
             return $request->saveXml();
