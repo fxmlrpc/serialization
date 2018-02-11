@@ -10,4 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 
+## 0.1.0 - 2018-02-11
+
+- Initial release
+
+
 [Unreleased]: https://github.com/moneyphp/money/compare/v0.1.0...HEAD
