@@ -28,7 +28,7 @@
         "behat/behat": "^3.0",
         "webmozart/assert": "^1.0",
         "doctrine/instantiator": "^1.0.5",
-        "phpbench/phpbench": "^0.8"
+        "phpbench/phpbench": "^0.13 || ^0.14"
     },
     "suggest": {
         "ext-xmlrpc": "Used in native serialization logic",
