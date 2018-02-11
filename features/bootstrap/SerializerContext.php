@@ -127,7 +127,7 @@ trait SerializerContext
      */
     public function iShouldSeeARequest(PyStringNode $request)
     {
-        PHPUnit_Framework_Assert::assertXmlStringEqualsXmlString((string) $request, $this->request);
+        PHPUnit\Framework\Assert::assertXmlStringEqualsXmlString((string) $request, $this->request);
     }
 
     /**
@@ -173,7 +173,7 @@ trait SerializerContext
             $value
         );
 
-        PHPUnit_Framework_Assert::assertXmlStringEqualsXmlString($request, $this->request);
+        PHPUnit\Framework\Assert::assertXmlStringEqualsXmlString($request, $this->request);
     }
 }
 
