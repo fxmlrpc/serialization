@@ -93,7 +93,7 @@ $ composer test
 
 ## Security
 
-If you discover any security related issues, please contact us at [security@fxmlrpc.io](mailto:security@fxmlrpc.io).
+If you discover any security related issues, please contact us at [security@fxmlrpc.io](mailto:security@fxmlrpc.org).
 
 
 ## Credits

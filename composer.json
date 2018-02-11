@@ -3,7 +3,7 @@
     "description": "Serialization logic for FXMLRPC",
     "license": "MIT",
     "keywords": ["xmlrpc", "xml", "rpc", "serialization"],
-    "homepage": "http://fxmlrpc.io",
+    "homepage": "http://fxmlrpc.org",
     "authors": [
         {
             "name": "Lars Strojny",
