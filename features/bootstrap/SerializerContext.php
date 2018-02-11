@@ -67,7 +67,7 @@ trait SerializerContext
      */
     public function iHaveAClassParameter()
     {
-        $this->iHaveAParameter(new SerializationTestStub);
+        $this->iHaveAParameter(new SerializationTestStub());
     }
 
     /**

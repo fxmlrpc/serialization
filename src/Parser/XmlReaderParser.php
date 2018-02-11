@@ -40,7 +40,7 @@ final class XmlReaderParser implements Parser
         $useErrors = libxml_use_internal_errors(true);
 
         $xml = new \XMLReader();
-        $xml->xml($xmlString, 'UTF-8', LIBXML_COMPACT | LIBXML_NOCDATA | LIBXML_NOBLANKS  | LIBXML_PARSEHUGE);
+        $xml->xml($xmlString, 'UTF-8', LIBXML_COMPACT | LIBXML_NOCDATA | LIBXML_NOBLANKS | LIBXML_PARSEHUGE);
         $xml->setParserProperty(\XMLReader::VALIDATE, false);
         $xml->setParserProperty(\XMLReader::LOADDTD, false);
 

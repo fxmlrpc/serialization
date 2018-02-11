@@ -24,7 +24,7 @@ class ParserBench
     public function xmlProvider()
     {
         return [
-            [file_get_contents(__DIR__ . '/../fixtures/response.xml')],
+            [file_get_contents(__DIR__.'/../fixtures/response.xml')],
         ];
     }
 

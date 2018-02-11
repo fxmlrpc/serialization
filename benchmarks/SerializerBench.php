@@ -30,7 +30,7 @@ class SerializerBench
                 'test_float' => (float) rand(),
                 'test_datetime' => new \DateTime(),
                 'test_base64' => Base64Value::serialize(str_repeat('a', 100000)),
-            ]
+            ],
         ];
     }
 
