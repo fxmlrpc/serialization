@@ -3,4 +3,5 @@
 /composer.lock
 /phpspec.yml
 /phpunit.xml
+/.php_cs
 /vendor/
