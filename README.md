@@ -14,7 +14,7 @@
 
 Via Composer
 
-``` bash
+```bash
 $ composer require fxmlrpc/serialization
 ```
 
@@ -58,7 +58,6 @@ min mean max: 11,497.750 118,279.634 339,007.500 (μs/r)
 +-----------------+-----------------------+-------+------+-----+-------------+----------------+----------------+----------------+---------------+--------+
 ```
 
-
 Run `./vendor/bin/phpbench run --report=custom` to execute the benchmarking test suite.
 
 
@@ -83,10 +82,9 @@ Zend is not fully compatible with the rest of the serializers and parsers.
 - Unlike the xmlrpc extension, Zend does not add [newlines](http://php.net/manual/en/function.xmlrpc-encode-request.php#27992)
 
 
-
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
