@@ -34,9 +34,9 @@ final class NativeSerializer implements Serializer
     {
         foreach ($params as $key => $value) {
             $type = gettype($value);
-            if ($type === 'array') {
+            if ('array' === $type) {
                 $params[$key] = $this->convert($value);
-            } elseif ($type === 'object') {
+            } elseif ('object' === $type) {
                 if ($value instanceof \DateTime) {
                     $params[$key] = (object) [
                         'xmlrpc_type' => 'datetime',
@@ -51,7 +51,7 @@ final class NativeSerializer implements Serializer
                 } else {
                     $params[$key] = get_object_vars($value);
                 }
-            } elseif ($type === 'resource') {
+            } elseif ('resource' === $type) {
                 throw new InvalidTypeException($value);
             }
         }

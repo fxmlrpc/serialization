@@ -44,8 +44,8 @@ final class XmlReaderParser implements Parser
         $xml->setParserProperty(\XMLReader::VALIDATE, false);
         $xml->setParserProperty(\XMLReader::LOADDTD, false);
 
-// This following assignments are auto-generated using Fxmlrpc\Serialization\CodeGenerator\XmlReaderParserBitmaskGenerator
-// Don’t edit manually
+        // This following assignments are auto-generated using Fxmlrpc\Serialization\CodeGenerator\XmlReaderParserBitmaskGenerator
+        // Don’t edit manually
         static $flagmethodResponse = 0b000000000000000000000000001;
         static $flagparams = 0b000000000000000000000000010;
         static $flagfault = 0b000000000000000000000000100;
@@ -73,7 +73,7 @@ final class XmlReaderParser implements Parser
         static $flagnil = 0b001000000000000000000000000;
         static $flagdom = 0b010000000000000000000000000;
         static $flagdata = 0b100000000000000000000000000;
-// End of auto-generated code
+        // End of auto-generated code
 
         $aggregates = [];
         $depth = 0;
@@ -85,21 +85,21 @@ final class XmlReaderParser implements Parser
             ++$i;
             $nodeType = $xml->nodeType;
 
-            if (($nodeType === \XMLReader::COMMENT || $nodeType === \XMLReader::DOC_TYPE) ||
+            if ((\XMLReader::COMMENT === $nodeType || \XMLReader::DOC_TYPE === $nodeType) ||
                 (
-                   $nodeType === \XMLReader::SIGNIFICANT_WHITESPACE &&
-                   ($nextExpectedElements & 0b000000000000000000100000000) !== 0b000000000000000000100000000)
+                   \XMLReader::SIGNIFICANT_WHITESPACE === $nodeType &&
+                   0b000000000000000000100000000 !== ($nextExpectedElements & 0b000000000000000000100000000))
                 ) {
                 continue;
             }
 
-            if ($nodeType === \XMLReader::ENTITY_REF) {
+            if (\XMLReader::ENTITY_REF === $nodeType) {
                 return '';
             }
 
             $tagName = $xml->localName;
 
-            if ($nextExpectedElements !== null &&
+            if (null !== $nextExpectedElements &&
                 ($flag = isset(${'flag'.$tagName}) ? ${'flag'.$tagName} : -1) &&
                 ($nextExpectedElements & $flag) !== $flag
             ) {
@@ -130,6 +130,7 @@ final class XmlReaderParser implements Parser
                         case 'fault':
                             $isFault = true;
                             // Break intentionally omitted
+                            // no break
                         case 'param':
                             // Next: value
                             $nextExpectedElements = 0b000000000000000000000010000;
@@ -138,6 +139,7 @@ final class XmlReaderParser implements Parser
                         case 'array':
                             $aggregates[++$depth] = [];
                             // Break intentionally omitted
+                            // no break
                         case 'data':
                             // Next: array, data, value
                             $nextExpectedElements = 0b100000000000000000000110000;
@@ -241,6 +243,7 @@ final class XmlReaderParser implements Parser
                         case 'struct':
                             --$depth;
                             // Break intentionally omitted
+                            // no break
                         case 'string':
                         case 'int':
                         case 'biginteger':
@@ -292,7 +295,7 @@ final class XmlReaderParser implements Parser
                             break;
 
                         case 'boolean':
-                            $value = $xml->value === '1';
+                            $value = '1' === $xml->value;
                             break;
 
                         case 'double':
@@ -333,7 +336,7 @@ final class XmlReaderParser implements Parser
                     }
 
                     $aggregates[$depth + 1] = $value;
-                    if ($nextExpectedElements === null) {
+                    if (null === $nextExpectedElements) {
                         break;
                     }
                     // Next: any
@@ -341,7 +344,7 @@ final class XmlReaderParser implements Parser
                     break;
             }
 
-            if ($xml->isEmptyElement && $nodeType !== \XMLReader::END_ELEMENT) {
+            if ($xml->isEmptyElement && \XMLReader::END_ELEMENT !== $nodeType) {
                 $nodeType = \XMLReader::END_ELEMENT;
                 goto processing;
             }

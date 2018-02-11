@@ -18,7 +18,7 @@ final class UnexpectedTagException extends SerializerException
     {
         $expectedElements = [];
         foreach ($definedVariables as $variableName => $variable) {
-            if (substr($variableName, 0, 4) !== 'flag') {
+            if ('flag' !== substr($variableName, 0, 4)) {
                 continue;
             }
 
