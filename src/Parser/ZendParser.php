@@ -12,7 +12,7 @@ use Zend\XmlRpc\Response;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-final class Zend2Parser implements Parser
+final class ZendParser implements Parser
 {
     /**
      * {@inheritdoc}

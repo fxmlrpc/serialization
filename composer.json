@@ -22,7 +22,6 @@
         "ext-xmlrpc": "*",
         "ext-xmlreader": "*",
         "ext-xmlwriter": "*",
-        "zendframework/zendframework1": "^1.12.4",
         "zendframework/zend-xmlrpc": "^2.3.2",
         "phpspec/phpspec": "^3.0",
         "doctrine/instantiator": "^1.0.5",
