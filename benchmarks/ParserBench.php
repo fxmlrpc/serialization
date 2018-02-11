@@ -6,7 +6,7 @@ use Fxmlrpc\Serialization\Parser;
 use Fxmlrpc\Serialization\Parser\NativeParser;
 use Fxmlrpc\Serialization\Parser\XmlReaderParser;
 use Fxmlrpc\Serialization\Parser\Zend1Parser;
-use Fxmlrpc\Serialization\Parser\Zend2Parser;
+use Fxmlrpc\Serialization\Parser\ZendParser;
 use PhpBench\Benchmark\Metadata\Annotations\Iterations;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
 use PhpBench\Benchmark\Metadata\Annotations\Revs;
@@ -51,19 +51,9 @@ class ParserBench
     /**
      * @ParamProviders({"xmlProvider"})
      */
-    public function benchZend1Parser($xml)
+    public function benchZendParser($xml)
     {
-        $parser = new Zend1Parser();
-
-        $parser->parse($xml[0]);
-    }
-
-    /**
-     * @ParamProviders({"xmlProvider"})
-     */
-    public function benchZend2Parser($xml)
-    {
-        $parser = new Zend2Parser();
+        $parser = new ZendParser();
 
         $parser->parse($xml[0]);
     }
