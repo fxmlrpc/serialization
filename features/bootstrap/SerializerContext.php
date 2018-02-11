@@ -84,7 +84,7 @@ trait SerializerContext
     public function iHaveAParameterOfType($param, $type)
     {
         if ('bool' === $type) {
-            $param = $param === 'true';
+            $param = 'true' === $param;
         } else {
             $param = call_user_func($type.'val', $param);
         }

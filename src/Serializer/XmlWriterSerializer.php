@@ -89,15 +89,15 @@ final class XmlWriterSerializer implements Serializer, ExtensionSupport
             $node = array_pop($toBeVisited);
             $type = gettype($node);
 
-            if ($type === 'string') {
+            if ('string' === $type) {
                 $writer->startElement('value');
                 $writer->writeElement('string', $node);
                 $writer->endElement();
-            } elseif ($type === 'integer') {
+            } elseif ('integer' === $type) {
                 $writer->startElement('value');
                 $writer->writeElement('int', $node);
                 $writer->endElement();
-            } elseif ($type === 'double') {
+            } elseif ('double' === $type) {
                 if (!isset($precision)) {
                     $precision = ini_get('precision');
                 }
@@ -105,15 +105,15 @@ final class XmlWriterSerializer implements Serializer, ExtensionSupport
                 $writer->startElement('value');
                 $writer->writeElement('double', $node);
                 $writer->endElement();
-            } elseif ($type === 'boolean') {
+            } elseif ('boolean' === $type) {
                 $writer->startElement('value');
                 $writer->writeElement('boolean', $node ? '1' : '0');
                 $writer->endElement();
-            } elseif ($type === 'NULL') {
+            } elseif ('NULL' === $type) {
                 $writer->startElement('value');
                 $writer->writeElement($nilTagName);
                 $writer->endElement();
-            } elseif ($type === 'array') {
+            } elseif ('array' === $type) {
                 /* Find out if it is a struct or an array */
                 $smallestIndex = 0;
                 foreach ($node as $smallestIndex => &$child) {
@@ -161,7 +161,7 @@ final class XmlWriterSerializer implements Serializer, ExtensionSupport
                     };
                     $toBeVisited[] = $valueNode;
                 }
-            } elseif ($type === 'object') {
+            } elseif ('object' === $type) {
                 if ($node instanceof \Closure) {
                     $node();
                 } elseif ($node instanceof \DateTime) {
@@ -176,7 +176,7 @@ final class XmlWriterSerializer implements Serializer, ExtensionSupport
                     $node = get_object_vars($node);
                     goto struct;
                 }
-            } elseif ($type === 'resource') {
+            } elseif ('resource' === $type) {
                 throw new InvalidTypeException($node);
             }
         }
@@ -187,7 +187,7 @@ final class XmlWriterSerializer implements Serializer, ExtensionSupport
         $xml = $writer->flush(true);
 
         // NativeSerializer does not inject a newline after the declaration
-        if ($xml[38] === "\n") {
+        if ("\n" === $xml[38]) {
             $xml = substr($xml, 0, 38).substr($xml, 39);
         }
 

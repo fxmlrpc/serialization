@@ -38,7 +38,7 @@ final class Zend1Parser implements Parser
 
         while (isset($toBeVisited[0]) && $value = &$toBeVisited[0]) {
             $type = gettype($value);
-            if ($type === 'array') {
+            if ('array' === $type) {
                 foreach ($value as &$element) {
                     $toBeVisited[] = &$element;
                 }

@@ -53,29 +53,29 @@ final class NativeParser implements Parser
 
         $result = xmlrpc_decode($xmlString, 'UTF-8');
 
-        if ($result === null && self::isBiggerThanParseLimit($xmlString)) {
+        if (null === $result && self::isBiggerThanParseLimit($xmlString)) {
             throw ParserException::xmlrpcExtensionLibxmlParsehugeNotSupported();
         }
 
         $toBeVisited = [&$result];
         while (isset($toBeVisited[0]) && $value = &$toBeVisited[0]) {
             $type = gettype($value);
-            if ($type === 'object') {
+            if ('object' === $type) {
                 $xmlRpcType = $value->{'xmlrpc_type'};
-                if ($xmlRpcType === 'datetime') {
+                if ('datetime' === $xmlRpcType) {
                     $value = \DateTime::createFromFormat(
                         'Ymd\TH:i:s',
                         $value->scalar,
                         isset($timezone) ? $timezone : $timezone = new \DateTimeZone('UTC')
                     );
-                } elseif ($xmlRpcType === 'base64') {
-                    if ($value->scalar !== '') {
+                } elseif ('base64' === $xmlRpcType) {
+                    if ('' !== $value->scalar) {
                         $value = Base64Value::serialize($value->scalar);
                     } else {
                         $value = null;
                     }
                 }
-            } elseif ($type === 'array') {
+            } elseif ('array' === $type) {
                 foreach ($value as &$element) {
                     $toBeVisited[] = &$element;
                 }

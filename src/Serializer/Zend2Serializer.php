@@ -26,7 +26,7 @@ final class Zend2Serializer implements Serializer
         while (isset($toBeVisited[0]) && $value = &$toBeVisited[0]) {
             $type = gettype($value);
 
-            if ($type === 'array') {
+            if ('array' === $type) {
                 // Zend converts non-zero-indexed arrays to structs
                 if ((array_keys($value) !== range(0, count($value) - 1)) && (array_keys($value) == range(1, count($value)))) {
                     $value = array_values($value);
@@ -35,7 +35,7 @@ final class Zend2Serializer implements Serializer
                 foreach ($value as &$child) {
                     $toBeVisited[] = &$child;
                 }
-            } elseif ($type === 'object') {
+            } elseif ('object' === $type) {
                 if ($value instanceof \DateTime) {
                     $value = AbstractValue::getXmlRpcValue($value->format('Ymd\TH:i:s'), AbstractValue::XMLRPC_TYPE_DATETIME);
                 } elseif ($value instanceof Base64) {
@@ -43,7 +43,7 @@ final class Zend2Serializer implements Serializer
                 } else {
                     $value = get_object_vars($value);
                 }
-            } elseif ($type === 'resource') {
+            } elseif ('resource' === $type) {
                 throw new InvalidTypeException($value);
             }
 

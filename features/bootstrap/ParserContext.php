@@ -116,7 +116,7 @@ trait ParserContext
     public function iShouldSeeTheValueValue($value)
     {
         if (in_array($value, ['true', 'false'])) {
-            $value = $value === 'true';
+            $value = 'true' === $value;
         }
 
         Assert::eq($value, $this->value);
