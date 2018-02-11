@@ -5,7 +5,7 @@ namespace Fxmlrpc\Serialization\Exception;
 /**
  * @author Lars Strojny <lstrojny@php.net>
  */
-final class UnexpectedTagException extends SerializerException
+final class UnexpectedTagException extends ParserException
 {
     /**
      * @param string $tagName
