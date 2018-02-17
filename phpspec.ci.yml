@@ -4,7 +4,8 @@ suites:
         psr4_prefix: Fxmlrpc\Serialization
 formatter.name: pretty
 extensions:
-    PhpSpecCodeCoverage\CodeCoverageExtension: ~
-code_coverage:
-    format: clover
-    output: build/coverage.xml
+    LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+        format:
+            - clover
+        output:
+            clover: build/coverage.xml

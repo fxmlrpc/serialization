@@ -24,7 +24,7 @@
         "ext-xmlwriter": "*",
         "zendframework/zend-xmlrpc": "^2.3.2",
         "phpspec/phpspec": "^3.0 || ^4.0",
-        "henrikbjorn/phpspec-code-coverage" : "^3.0",
+        "leanphp/phpspec-code-coverage": "^3.0 || ^4.0",
         "behat/behat": "^3.0",
         "webmozart/assert": "^1.0",
         "phpunit/phpunit": "^5.7 || ^6.4 || ^7.0",
@@ -47,9 +47,19 @@
             "Fxmlrpc\\Benchmark\\": "benchmarks/"
         }
     },
+    "config": {
+        "sort-packages": true
+    },
     "scripts": {
-        "test": "vendor/bin/phpspec run && vendor/bin/behat",
-        "test-ci": "vendor/bin/phpspec run -c phpspec.ci.yml && vendor/bin/behat"
+        "clean": "rm -rf build/ vendor/",
+        "test": [
+            "vendor/bin/phpspec run",
+            "vendor/bin/behat"
+        ],
+        "test-coverage": [
+            "vendor/bin/phpspec run -c phpspec.ci.yml",
+            "vendor/bin/behat"
+        ]
     },
     "extra": {
         "branch-alias": {

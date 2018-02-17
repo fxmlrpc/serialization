@@ -14,8 +14,8 @@ class UnexpectedTagExceptionSpec extends ObjectBehavior
             'invalid',
             'val',
             [
-                'flagTest'          => 'val',
-                'flagAnother'       => 'val',
+                'flagTest' => 'val',
+                'flagAnother' => 'val',
                 'thisWIllBeSkipped' => 'val',
             ],
             5,
